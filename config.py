@@ -7,8 +7,10 @@ __license__   = 'GPL v3' #Based on B&N plugin by Grant Drake
 __copyright__ = '2013, Benjamin Behringer <mail at benjamin-behringer.de>'
 __docformat__ = 'en'
 
-from PyQt4 import QtGui
-from PyQt4.Qt import QLabel, QGridLayout, Qt, QGroupBox, QCheckBox
+from PyQt5 import QtWidgets
+
+from PyQt5.Qt import Qt
+from PyQt5.QtWidgets import  QLabel, QGridLayout, QGroupBox, QCheckBox
 from calibre.gui2.metadata.config import ConfigWidget as DefaultConfigWidget
 from calibre.utils.config import JSONConfig
 
@@ -48,7 +50,7 @@ class ConfigWidget(DefaultConfigWidget):
         max_downloads_label.setToolTip('More matches means higher chance of better\n'
                              'metadata (but not necessarily).\n')
         other_group_box_layout.addWidget(max_downloads_label, 1, 0, 1, 1)
-        self.max_downloads_spin = QtGui.QSpinBox(self)
+        self.max_downloads_spin = QtWidgets.QSpinBox(self)
         self.max_downloads_spin.setMinimum(1)
         self.max_downloads_spin.setMaximum(100)
         self.max_downloads_spin.setProperty('value', c.get(KEY_MAX_DOWNLOADS, DEFAULT_STORE_VALUES[KEY_MAX_DOWNLOADS]))
